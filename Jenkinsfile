@@ -18,10 +18,10 @@ node {
   }
 
   stage('Deploy') {
-    //withCredentials([
-    //    file(credentialsId: 'kube-config',
-    //         variable: 'KUBECONFIG')]) {
-    //  sh 'kubectl apply -f deployment.yaml'
-    //}
+    withCredentials([
+        file(credentialsId: 'kube-config',
+             variable: 'KUBECONFIG')]) {
+      sh 'kubectl apply -f deployment.yaml'
+    }
   }
 }
